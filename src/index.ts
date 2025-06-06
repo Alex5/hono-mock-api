@@ -81,11 +81,15 @@ app.delete("/api/v1/cart/:userId/:productId", async (c) => {
     return c.json({ error: "Item not found" }, 404);
   }
 
-  delete cart[productId];
+  if (cart[productId].quantity === 1) {
+    delete cart[productId];
+  } else {
+    cart[productId] = {product: cart[productId].product, quantity: cart[productId].quantity - 1}
+  }
 
   cartCache.set(userId, cart);
 
-  return c.json(cartCache.get(userId)?.[productId]);
+  return c.json(cartCache.get(userId));
 });
 
 serve(
