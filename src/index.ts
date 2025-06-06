@@ -12,7 +12,7 @@ type Product = (typeof products)[number];
 type CartItem = { product: Product; quantity: number };
 type UserCart = Record<string, CartItem>;
 
-type SessionData = { userId?: string };
+type SessionData = { username?: string };
 
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN;
 if (!CLIENT_ORIGIN) throw new Error("CLIENT_ORIGIN must be provided");
@@ -35,6 +35,8 @@ const cartCache = new LRUCache<string, UserCart>({
   ttl: 300000
 });
 
+const activeSessions = new Set<string>();
+
 app.use('/api/*', cors({ origin: CLIENT_ORIGIN }));
 
 app.use(async (c, next) => {
@@ -50,9 +52,13 @@ app.post("/api/v1/login", async (c) => {
 
   if (!userId) return c.json({ error: "Missing userId" }, 400);
 
+  if (activeSessions.has(userId)) {
+    return c.json(undefined, 409);
+  }
+
   const session = c.get("session");
 
-  session.userId = userId;
+  session.username = userId;
 
   await session.save();
 
@@ -61,6 +67,10 @@ app.post("/api/v1/login", async (c) => {
 
 app.post("/api/v1/logout", async (c) => {
   const session = c.get("session");
+
+  if (session?.username) {
+    activeSessions.delete(session.username);
+  }
 
   session.destroy();
 
@@ -74,7 +84,7 @@ app.get("/api/v1/products", (c) => {
 app.get("/api/v1/cart", (c) => {
   const session = c.get("session");
 
-  const userId = session.userId;
+  const userId = session.username;
 
   if (!userId) return c.json(undefined, 401);
 
@@ -86,7 +96,7 @@ app.get("/api/v1/cart", (c) => {
 app.post("/api/v1/cart", async (c) => {
   const session = c.get("session");
 
-  const userId = session.userId;
+  const userId = session.username;
 
   if (!userId) return c.json(undefined, 401);
 
@@ -120,7 +130,7 @@ app.post("/api/v1/cart", async (c) => {
 app.delete("/api/v1/cart/:productId", async (c) => {
   const session = c.get("session");
 
-  const userId = session.userId;
+  const userId = session.username;
   
   if (!userId) return c.json(undefined, 401);
 
