@@ -19,7 +19,7 @@ const app = new Hono();
 
 const cartCache = new LRUCache<string, UserCart>({
   max: 1000,
-  ttl: 1000 * 60 * 10,
+  ttl: 300000
 });
 
 app.use('/api/*', cors({ origin: CLIENT_ORIGIN }));
@@ -41,7 +41,7 @@ app.get("/api/v1/cart/:userId", (c) => {
 app.post("/api/v1/cart/:userId", async (c) => {
   const { userId } = c.req.param();
 
-  const { cartItem } = await c.req.json();
+  const cartItem = await c.req.json() as Product;
 
   if (!userId && !cartItem) {
     return c.json({ error: "Missing userId, productId, or quantity" }, 400);
@@ -49,13 +49,20 @@ app.post("/api/v1/cart/:userId", async (c) => {
 
   const cart = cartCache.get(userId) || {};
 
-  const existing = cart[cartItem.product.id];
+  const existing = cart[cartItem.id] as CartItem | undefined;
 
+  if (existing) {
     cart[existing.product.id] = {
         ...existing,
-        quantity: (existing?.quantity ?? 0) + cartItem.quantity,
+        quantity: (existing?.quantity ? (existing?.quantity + 1) : 1),
     };
-
+  } else {
+    cart[cartItem.id] = {
+      product: cartItem,
+      quantity: 1
+    }
+  }
+    
   cartCache.set(userId, cart);
 
   const cacheCartItem = cartCache.get(userId);
