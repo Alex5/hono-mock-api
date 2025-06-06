@@ -3,8 +3,8 @@ import { Hono } from "hono";
 
 const app = new Hono();
 
-app.get("/", (c) => {
-  return c.text("Hello Hono!");
+app.get("/api/v1/products", (c) => {
+  return c.json([{ id: 1, name: "Product 1" }]);
 });
 
 serve(
