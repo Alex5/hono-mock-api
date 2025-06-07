@@ -48,21 +48,23 @@ app.use(async (c, next) => {
 });
 
 app.post("/api/v1/login", async (c) => {
-  const { userId } = await c.req.json();
+  const { username } = await c.req.json();
 
-  if (!userId) return c.json({ error: "Missing userId" }, 400);
+  if (!username) return c.json({ error: "Missing username" }, 400);
 
-  if (activeSessions.has(userId)) {
+  if (activeSessions.has(username)) {
     return c.json(undefined, 409);
   }
 
   const session = c.get("session");
 
-  session.username = userId;
+  session.username = username;
 
   await session.save();
 
-  return c.json({ ok: true });
+  activeSessions.add(username);
+
+  return c.json(session);
 });
 
 app.post("/api/v1/logout", async (c) => {
