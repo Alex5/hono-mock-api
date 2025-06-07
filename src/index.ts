@@ -37,7 +37,7 @@ const cartCache = new LRUCache<string, UserCart>({
 
 const activeSessions = new Set<string>();
 
-app.use('/api/*', cors({ origin: CLIENT_ORIGIN }));
+app.use('/api/*', cors({ origin: CLIENT_ORIGIN, credentials: true }));
 
 app.use(async (c, next) => {
   const session = await getIronSession<SessionData>(c.req.raw, c.res, sessionOptions);
@@ -46,6 +46,16 @@ app.use(async (c, next) => {
 
   await next();
 });
+
+app.get("/api/v1/me", async (c) => {
+  const session = c.get("session")
+
+  if (session?.username) {
+    return c.json(session, {status: 200});
+  } else {
+    return c.json(undefined, {status: 401});
+  }
+})
 
 app.post("/api/v1/login", async (c) => {
   const { username } = await c.req.json();
@@ -67,16 +77,20 @@ app.post("/api/v1/login", async (c) => {
   return c.json(session);
 });
 
-app.post("/api/v1/logout", async (c) => {
+app.patch("/api/v1/logout", async (c) => {
   const session = c.get("session");
+  
+  console.log("logout", {session})
 
   if (session?.username) {
     activeSessions.delete(session.username);
+
+    session.destroy();
+
+    return c.json(undefined, 200);
+  } else {
+    return c.json(undefined, 401);
   }
-
-  session.destroy();
-
-  return c.json({ ok: true });
 });
 
 app.get("/api/v1/products", (c) => {
