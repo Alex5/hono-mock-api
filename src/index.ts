@@ -21,15 +21,18 @@ if (!CLIENT_ORIGIN) throw new Error("CLIENT_ORIGIN must be provided");
 const SESSION_SECRET = process.env.SESSION_SECRET;
 if (!SESSION_SECRET) throw new Error("SESSION_SECRET must be provided");
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const sessionOptions: SessionOptions = {
   cookieName: "hono_mock_session",
   password: SESSION_SECRET,
   cookieOptions: {
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'none',
-    httpOnly: true
+    secure: isProd,
+    sameSite: isProd ? 'none' : 'lax',
+    httpOnly: true,
   },
 };
+
 
 const app = new Hono<{ Variables: {session: IronSession<SessionData>} }>();
 
