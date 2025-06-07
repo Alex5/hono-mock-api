@@ -26,6 +26,8 @@ const sessionOptions: SessionOptions = {
   password: SESSION_SECRET,
   cookieOptions: {
     secure: process.env.NODE_ENV === 'production',
+    sameSite: 'none',
+    httpOnly: true
   },
 };
 
