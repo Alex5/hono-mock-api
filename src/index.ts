@@ -109,7 +109,7 @@ app.get("/api/v1/yandex/callback", async (c) => {
 
   await session.save();
 
-  return c.redirect(`${CLIENT_ORIGIN}/`);
+  return c.redirect(`${CLIENT_ORIGIN}/react-lavka/`);
 });
 
 app.get("/api/v1/products", (c) => c.json(products));
