@@ -38,8 +38,6 @@ const cartCache = new LRUCache<string, UserCart>({
   ttl: 300000
 });
 
-const activeSessions = new Set<string>();
-
 app.use('/api/*', cors({ origin: CLIENT_ORIGIN, credentials: true }));
 
 app.use(async (c, next) => {
@@ -65,17 +63,15 @@ app.post("/api/v1/login", async (c) => {
 
   if (!username) return c.json({ error: "Missing username" }, 400);
 
-  if (activeSessions.has(username)) {
+   const session = c.get("session");
+
+  if (session?.username) {
     return c.json(undefined, 409);
   }
-
-  const session = c.get("session");
 
   session.username = username;
 
   await session.save();
-
-  activeSessions.add(username);
 
   return c.json(session);
 });
@@ -86,8 +82,6 @@ app.patch("/api/v1/logout", async (c) => {
   console.log("logout", {session})
 
   if (session?.username) {
-    activeSessions.delete(session.username);
-
     session.destroy();
 
     return c.json(undefined, 200);
