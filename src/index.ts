@@ -2,6 +2,7 @@ import 'dotenv/config';
 
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
+import { csrf } from 'hono/csrf'
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger'
 import { LRUCache } from 'lru-cache';
@@ -21,14 +22,14 @@ if (!CLIENT_ORIGIN) throw new Error("CLIENT_ORIGIN must be provided");
 const SESSION_SECRET = process.env.SESSION_SECRET;
 if (!SESSION_SECRET) throw new Error("SESSION_SECRET must be provided");
 
-const isProd = process.env.NODE_ENV === 'production';
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 const sessionOptions: SessionOptions = {
   cookieName: "hono_mock_session",
   password: SESSION_SECRET,
   cookieOptions: {
-    secure: isProd,
-    sameSite: isProd ? 'none' : 'lax',
+    secure: !isDevelopment,
+    sameSite: isDevelopment ? 'lax' : 'none',
     httpOnly: true,
   },
 };
@@ -44,6 +45,7 @@ const cartCache = new LRUCache<string, UserCart>({
 });
 
 app.use('/api/*', cors({ origin: CLIENT_ORIGIN, credentials: true }));
+app.use(csrf({ origin: CLIENT_ORIGIN }))
 
 app.use(async (c, next) => {
   const session = await getIronSession<SessionData>(c.req.raw, c.res, sessionOptions);
