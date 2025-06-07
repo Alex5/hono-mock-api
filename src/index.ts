@@ -3,6 +3,7 @@ import 'dotenv/config';
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from 'hono/cors';
+import { logger } from 'hono/logger'
 import { LRUCache } from 'lru-cache';
 import { getIronSession, type SessionOptions, type IronSession } from "iron-session";
 
@@ -29,6 +30,8 @@ const sessionOptions: SessionOptions = {
 };
 
 const app = new Hono<{ Variables: {session: IronSession<SessionData>} }>();
+
+app.use(logger())
 
 const cartCache = new LRUCache<string, UserCart>({
   max: 200,
