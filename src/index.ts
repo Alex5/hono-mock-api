@@ -44,15 +44,15 @@ app.use(async (c, next) => {
 app.get("/api/v1/me", (c) => {
   const session = c.get("session");
 
-  return session?.username
-    ? c.json(session, 200)
+  return session?.user
+    ? c.json(session.user, 200)
     : c.json(undefined, 401);
 });
 
 app.patch("/api/v1/logout", async (c) => {
   const session = c.get("session");
 
-  if (session?.username) {
+  if (session?.user) {
     session.destroy();
 
     return c.json(undefined, 200);
@@ -91,7 +91,6 @@ app.get("/api/v1/yandex/callback", async (c) => {
 
   if (!tokenData.access_token) {
     console.error("Token error:", tokenData);
-
     return c.text("OAuth failed", 401);
   }
 
@@ -105,19 +104,21 @@ app.get("/api/v1/yandex/callback", async (c) => {
 
   const session = c.get("session");
 
-  session.username = userInfo.login;
+  // Сохраняем весь объект userInfo
+  session.user = userInfo;
 
   await session.save();
 
   return c.redirect(`${CLIENT_ORIGIN}/react-lavka/`);
 });
 
+
 app.get("/api/v1/products", (c) => c.json(products));
 
 app.get("/api/v1/cart", (c) => {
   const session = c.get("session");
 
-  const userId = session.username;
+  const userId = session.user?.id;
 
   if (!userId) return c.json(undefined, 401);
 
@@ -129,7 +130,7 @@ app.get("/api/v1/cart", (c) => {
 app.post("/api/v1/cart", async (c) => {
   const session = c.get("session");
 
-  const userId = session.username;
+  const userId = session.user?.id;
 
   if (!userId) return c.json(undefined, 401);
 
@@ -161,7 +162,7 @@ app.post("/api/v1/cart", async (c) => {
 app.delete("/api/v1/cart/:productId", (c) => {
   const session = c.get("session");
 
-  const userId = session.username;
+  const userId = session.user?.id;
 
   if (!userId) return c.json(undefined, 401);
 
