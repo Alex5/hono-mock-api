@@ -7,7 +7,7 @@ import { cors } from 'hono/cors';
 import { logger } from 'hono/logger'
 import { LRUCache } from 'lru-cache';
 import { getIronSession, type SessionOptions, type IronSession } from "iron-session";
-import products from "./fixtures/products.json" with { type: 'json' };
+import category from "./fixtures/category.json" with { type: 'json' };
 import { getEnvs } from './utils.js';
 import type { CartItem, Product, SessionData, UserCart } from './types.js';
 
@@ -104,7 +104,6 @@ app.get("/api/v1/yandex/callback", async (c) => {
 
   const session = c.get("session");
 
-  // Сохраняем весь объект userInfo
   session.user = userInfo;
 
   await session.save();
@@ -113,7 +112,7 @@ app.get("/api/v1/yandex/callback", async (c) => {
 });
 
 
-app.get("/api/v1/products", (c) => c.json(products));
+app.get("/api/v1/products", (c) => c.json(category.products));
 
 app.get("/api/v1/cart", (c) => {
   const session = c.get("session");

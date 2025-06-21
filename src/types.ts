@@ -1,4 +1,4 @@
-import products from "./fixtures/products.json" with { type: 'json' };
+import products from "./fixtures/category.json" with { type: 'json' };
 
 export type Product = (typeof products)[number];
 
