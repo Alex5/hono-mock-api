@@ -1,0 +1,96 @@
+{
+  "items": [
+    {
+      "type": "category_group",
+      "id": "c5988f7285aed71bc21216620fcbf170",
+      "height": 2,
+      "width": 6,
+      "items": [
+        {
+          "type": "category",
+          "id": "1d7af4eeaa4be67efc98a85ccb8f8d07",
+          "height": 2,
+          "width": 2,
+          "items": []
+        },
+        {
+          "type": "category",
+          "id": "346d33b6e63a46be97111e8013eb557b",
+          "height": 2,
+          "width": 2,
+          "items": []
+        },
+        {
+          "type": "category",
+          "id": "3c2e0f3c1a874e4a8f773020c4d0d58f",
+          "height": 2,
+          "width": 2,
+          "items": []
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "346d33b6e63a46be97111e8013eb557b",
+      "deepLink": "ovoshchi_griby_i_zelen",
+      "title": "Овощи, грибы и зелень",
+      "available": true,
+      "imageUrlTemplates": [
+        "https://avatars.mds.yandex.net/get-grocery-goods/2756334/3a0a08b531b4458aa83e3b477cf23780/{w}x{h}"
+      ],
+      "itemMeta": {
+        "$titleColor": "#21201F",
+        "$placeholderColor": "#ECF5D3"
+      },
+      "type": "category"
+    },
+    {
+      "id": "1d7af4eeaa4be67efc98a85ccb8f8d07",
+      "deepLink": "seasonal",
+      "title": "Самый сезон",
+      "available": true,
+      "imageUrlTemplates": [
+        "https://avatars.mds.yandex.net/get-grocery-goods/2750890/499c0cc208d64f37a807b8d0a63a30dd/{w}x{h}"
+      ],
+      "itemMeta": {
+        "$titleColor": "#ffffff",
+        "$placeholderColor": "#ffffff",
+        "$isHideTitleOnTile": false,
+        "skipInCaasPromo": false,
+        "disableDiscountsCarousel": false
+      },
+      "type": "category"
+    },
+    {
+      "id": "3c2e0f3c1a874e4a8f773020c4d0d58f",
+      "deepLink": "Frukty_i_yagody",
+      "title": "Фрукты и ягоды",
+      "available": true,
+      "imageUrlTemplates": [
+        "https://avatars.mds.yandex.net/get-grocery-goods/2888787/b3d64ee4-4dd0-4ddc-96a0-336a50c4f19b/{w}x{h}"
+      ],
+      "itemMeta": {
+        "$titleColor": "#21201F",
+        "$placeholderColor": "#ECF5D3"
+      },
+      "type": "category"
+    },
+    {
+      "id": "c5988f7285aed71bc21216620fcbf170",
+      "title": "Овощной прилавок",
+      "imageUrlTemplates": [
+        "https://avatars.mds.yandex.net/get-grocery-goods/2750890/9e5b5c3d91a7469a852c3163dfef5e3c/{w}x{h}"
+      ],
+      "itemMeta": {
+        "$shortTitleColor": "#9e9b98",
+        "$standartTitleColor": "#21201f",
+        "$titleColorForRelatedCategory": "#ffffff",
+        "$placeholderColorForRelatedCategory": "#ffffff"
+      },
+      "type": "category_group"
+    }
+  ],
+  "layoutId": "75a3756e20228489115f04b8e4475668",
+  "informers": []
+}

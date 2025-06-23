@@ -1,0 +1,584 @@
+{
+  "yaTraceId": "a10656cf10c934f4ce8c07970c34d9ca",
+  "offerId": "cde594b1c5364f1da4331d61d821d94a",
+  "layoutId": "f600d842e71bb05750780099b1697496",
+  "categoryGroup": {
+    "id": "e4aa16aad5d52d132b021ee93b61d320",
+    "title": ""
+  },
+  "categories": [
+    {
+      "id": "4da07ae7968c28fee01eacc51216d0e9",
+      "deepLink": "recipes",
+      "layout": {
+        "width": 0,
+        "height": 0,
+        "type": "category",
+        "id": "4da07ae7968c28fee01eacc51216d0e9"
+      },
+      "index": 0,
+      "value": {
+        "id": "4da07ae7968c28fee01eacc51216d0e9",
+        "deepLink": "recipes",
+        "title": "Рецепты Лавки",
+        "available": true,
+        "itemMeta": {
+          "$titleColor": "#ffffff",
+          "$placeholderColor": "#ffffff",
+          "$isHideTitleOnTile": false,
+          "skipInCaasPromo": false,
+          "isRecipesCategory": true,
+          "disableDiscountsCarousel": true
+        },
+        "type": "category",
+        "viewType": "default",
+        "imageSize": [
+          288,
+          288
+        ],
+        "hideTitle": false,
+        "backgroundColor": "#ffffff"
+      },
+      "items": [
+        {
+          "id": "ff0699ae569548ed96c77644d1708554000400020001",
+          "deepLink": "frittata",
+          "layout": {
+            "width": 2,
+            "height": 4,
+            "type": "recipe",
+            "id": "ff0699ae569548ed96c77644d1708554000400020001",
+            "isHero": false
+          },
+          "index": 0,
+          "value": {
+            "id": "ff0699ae569548ed96c77644d1708554000400020001",
+            "deepLink": "frittata",
+            "title": "Фрит­та­та",
+            "longTitle": "Фриттата",
+            "amount": "1 шт.",
+            "available": true,
+            "quantityLimit": "0",
+            "withVideo": true,
+            "stickers": [],
+            "options": {
+              "docsRequired": false
+            },
+            "snippetImage": {
+              "url": "https://avatars.mds.yandex.net/get-grocery-goods/2791769/e274b974-b851-41c0-8c29-70b9d6b8ebad/{w}x{h}",
+              "substrated": false
+            },
+            "recipe": {
+              "cookTimeMinutes": 25,
+              "activeCookTimeMinutes": 10,
+              "type": "recipe_simplified"
+            },
+            "type": "recipe",
+            "viewType": "default",
+            "imageSize": [
+              288,
+              288
+            ],
+            "hideTitle": false,
+            "backgroundColor": "#EDF7FC"
+          },
+          "items": [],
+          "discountInformers": [],
+          "banners": []
+        },
+        {
+          "id": "83f218c2c70e4cb797b739734b4fec3d000200020000",
+          "deepLink": "yagodnaya-strachatella-na-nektarinah-gril",
+          "layout": {
+            "width": 2,
+            "height": 4,
+            "type": "recipe",
+            "id": "83f218c2c70e4cb797b739734b4fec3d000200020000",
+            "isHero": false
+          },
+          "index": 1,
+          "value": {
+            "id": "83f218c2c70e4cb797b739734b4fec3d000200020000",
+            "deepLink": "yagodnaya-strachatella-na-nektarinah-gril",
+            "title": "Ягод­ная стра­ча­тел­ла на нек­та­ри­нах гриль",
+            "longTitle": "Ягодная страчателла на нектаринах гриль",
+            "amount": "1 шт.",
+            "available": true,
+            "quantityLimit": "0",
+            "withVideo": true,
+            "stickers": [],
+            "options": {
+              "quantityType": "unit",
+              "docsRequired": false
+            },
+            "snippetImage": {
+              "url": "https://avatars.mds.yandex.net/get-grocery-goods/2805921/4630d8f3-5d8d-4dca-a790-6a19f2d22612/{w}x{h}",
+              "substrated": false
+            },
+            "recipe": {
+              "cookTimeMinutes": 30,
+              "activeCookTimeMinutes": 30,
+              "type": "recipe_simplified"
+            },
+            "type": "recipe",
+            "viewType": "default",
+            "imageSize": [
+              288,
+              288
+            ],
+            "hideTitle": false,
+            "backgroundColor": "#EDF7FC"
+          },
+          "items": [],
+          "discountInformers": [],
+          "banners": []
+        },
+        {
+          "id": "ff74289d9d454f4ba144e669483231ad000100020000",
+          "deepLink": "tyoplyj-salat-s-baklazhanom-i-kabachkom",
+          "layout": {
+            "width": 2,
+            "height": 4,
+            "type": "recipe",
+            "id": "ff74289d9d454f4ba144e669483231ad000100020000",
+            "isHero": false
+          },
+          "index": 2,
+          "value": {
+            "id": "ff74289d9d454f4ba144e669483231ad000100020000",
+            "deepLink": "tyoplyj-salat-s-baklazhanom-i-kabachkom",
+            "title": "Тёп­лый салат с бакла­жа­ном и кабач­ком",
+            "longTitle": "Тёплый салат с баклажаном и кабачком",
+            "amount": "1 шт.",
+            "available": true,
+            "quantityLimit": "0",
+            "withVideo": true,
+            "stickers": [],
+            "options": {
+              "quantityType": "unit",
+              "docsRequired": false
+            },
+            "snippetImage": {
+              "url": "https://avatars.mds.yandex.net/get-grocery-goods/2791769/8336aa89-3cba-4b66-b693-c99ae4a0b29e/{w}x{h}",
+              "substrated": false
+            },
+            "recipe": {
+              "cookTimeMinutes": 30,
+              "activeCookTimeMinutes": 30,
+              "type": "recipe_simplified"
+            },
+            "type": "recipe",
+            "viewType": "default",
+            "imageSize": [
+              288,
+              288
+            ],
+            "hideTitle": false,
+            "backgroundColor": "#EDF7FC"
+          },
+          "items": [],
+          "discountInformers": [],
+          "banners": []
+        },
+        {
+          "id": "bb17b61f78a74bb99442b14fb4c5e2cb000100020000",
+          "layout": {
+            "width": 2,
+            "height": 4,
+            "type": "recipe",
+            "id": "bb17b61f78a74bb99442b14fb4c5e2cb000100020000",
+            "isHero": false
+          },
+          "index": 3,
+          "value": {
+            "id": "bb17b61f78a74bb99442b14fb4c5e2cb000100020000",
+            "title": "Коко­со­вый суп с тофу",
+            "longTitle": "Кокосовый суп с тофу",
+            "amount": "1 шт.",
+            "available": true,
+            "quantityLimit": "0",
+            "withVideo": true,
+            "stickers": [],
+            "options": {
+              "docsRequired": false
+            },
+            "snippetImage": {
+              "url": "https://avatars.mds.yandex.net/get-grocery-goods/2783132/594f321a-4894-4fd0-b4b1-634504f6ae4c/{w}x{h}",
+              "substrated": false
+            },
+            "recipe": {
+              "cookTimeMinutes": 30,
+              "activeCookTimeMinutes": 30,
+              "type": "recipe_simplified"
+            },
+            "type": "recipe",
+            "viewType": "default",
+            "imageSize": [
+              288,
+              288
+            ],
+            "hideTitle": false,
+            "backgroundColor": "#EDF7FC"
+          },
+          "items": [],
+          "discountInformers": [],
+          "banners": []
+        },
+        {
+          "id": "82516eafad39477a979b2a1135dc2f29000200020000",
+          "deepLink": "penne-s-tykvoj",
+          "layout": {
+            "width": 2,
+            "height": 4,
+            "type": "recipe",
+            "id": "82516eafad39477a979b2a1135dc2f29000200020000",
+            "isHero": false
+          },
+          "index": 4,
+          "value": {
+            "id": "82516eafad39477a979b2a1135dc2f29000200020000",
+            "deepLink": "penne-s-tykvoj",
+            "title": "Пенне с тык­вой",
+            "longTitle": "Пенне с тыквой",
+            "amount": "1 шт.",
+            "available": true,
+            "quantityLimit": "0",
+            "withVideo": true,
+            "stickers": [],
+            "options": {
+              "quantityType": "unit",
+              "docsRequired": false
+            },
+            "snippetImage": {
+              "url": "https://avatars.mds.yandex.net/get-grocery-goods/2998515/67bc1271-8246-456d-bf37-950a8e57a6bd/{w}x{h}",
+              "substrated": false
+            },
+            "recipe": {
+              "cookTimeMinutes": 30,
+              "activeCookTimeMinutes": 30,
+              "type": "recipe_simplified"
+            },
+            "type": "recipe",
+            "viewType": "default",
+            "imageSize": [
+              288,
+              288
+            ],
+            "hideTitle": false,
+            "backgroundColor": "#EDF7FC"
+          },
+          "items": [],
+          "discountInformers": [],
+          "banners": []
+        },
+        {
+          "id": "3fcd04754159425ca2abeafa316d9fd4000200020000",
+          "layout": {
+            "width": 2,
+            "height": 4,
+            "type": "recipe",
+            "id": "3fcd04754159425ca2abeafa316d9fd4000200020000",
+            "isHero": false
+          },
+          "index": 5,
+          "value": {
+            "id": "3fcd04754159425ca2abeafa316d9fd4000200020000",
+            "title": "Мяс­ные кот­ле­ты",
+            "longTitle": "Мясные котлеты",
+            "amount": "1 шт.",
+            "available": true,
+            "quantityLimit": "0",
+            "withVideo": true,
+            "stickers": [],
+            "options": {
+              "docsRequired": false
+            },
+            "snippetImage": {
+              "url": "https://avatars.mds.yandex.net/get-grocery-goods/2756334/0a2f7b6b-7b13-4ac1-8796-6087778be7cd/{w}x{h}",
+              "substrated": false
+            },
+            "recipe": {
+              "cookTimeMinutes": 40,
+              "activeCookTimeMinutes": 40,
+              "type": "recipe_simplified"
+            },
+            "type": "recipe",
+            "viewType": "default",
+            "imageSize": [
+              288,
+              288
+            ],
+            "hideTitle": false,
+            "backgroundColor": "#EDF7FC"
+          },
+          "items": [],
+          "discountInformers": [],
+          "banners": []
+        }
+      ],
+      "discountInformers": [],
+      "banners": []
+    }
+  ],
+  "products": [
+    {
+      "type": "recipe",
+      "id": "bb17b61f78a74bb99442b14fb4c5e2cb000100020000",
+      "isMarkdown": false,
+      "title": "Коко­со­вый суп с тофу",
+      "longTitle": "Кокосовый суп с тофу",
+      "stickers": [],
+      "amount": "1 шт.",
+      "snippetImage": {
+        "url": "https://avatars.mds.yandex.net/get-grocery-goods/2783132/594f321a-4894-4fd0-b4b1-634504f6ae4c/{w}x{h}",
+        "substrated": false
+      },
+      "isFavorite": false,
+      "pricing": {
+        "amountPrice": 0,
+        "amountPriceSigned": "0",
+        "price": 0,
+        "priceSigned": "0"
+      },
+      "currentPrice": 0,
+      "currentPriceSigned": "0",
+      "isExpiring": false,
+      "adult": false,
+      "requiredRestriction": null,
+      "available": true,
+      "quantityLimit": "0",
+      "maxAmount": 0,
+      "baseStep": 1,
+      "incrementStep": 1,
+      "isLowStock": true,
+      "productTags": [],
+      "recipe": {
+        "cookTimeMinutes": 30,
+        "activeCookTimeMinutes": 30
+      },
+      "rewardedProductSamplingInfos": [],
+      "withVideo": true,
+      "options": {
+        "docsRequired": false
+      },
+      "children": []
+    },
+    {
+      "type": "recipe",
+      "id": "ff74289d9d454f4ba144e669483231ad000100020000",
+      "isMarkdown": false,
+      "deepLink": "tyoplyj-salat-s-baklazhanom-i-kabachkom",
+      "title": "Тёп­лый салат с бакла­жа­ном и кабач­ком",
+      "longTitle": "Тёплый салат с баклажаном и кабачком",
+      "stickers": [],
+      "amount": "1 шт.",
+      "snippetImage": {
+        "url": "https://avatars.mds.yandex.net/get-grocery-goods/2791769/8336aa89-3cba-4b66-b693-c99ae4a0b29e/{w}x{h}",
+        "substrated": false
+      },
+      "isFavorite": false,
+      "pricing": {
+        "amountPrice": 0,
+        "amountPriceSigned": "0",
+        "price": 0,
+        "priceSigned": "0"
+      },
+      "currentPrice": 0,
+      "currentPriceSigned": "0",
+      "isExpiring": false,
+      "adult": false,
+      "requiredRestriction": null,
+      "available": true,
+      "quantityLimit": "0",
+      "maxAmount": 0,
+      "baseStep": 1,
+      "incrementStep": 1,
+      "isLowStock": true,
+      "productTags": [],
+      "recipe": {
+        "cookTimeMinutes": 30,
+        "activeCookTimeMinutes": 30
+      },
+      "rewardedProductSamplingInfos": [],
+      "withVideo": true,
+      "options": {
+        "quantityType": "unit",
+        "docsRequired": false
+      },
+      "children": []
+    },
+    {
+      "type": "recipe",
+      "id": "3fcd04754159425ca2abeafa316d9fd4000200020000",
+      "isMarkdown": false,
+      "title": "Мяс­ные кот­ле­ты",
+      "longTitle": "Мясные котлеты",
+      "stickers": [],
+      "amount": "1 шт.",
+      "snippetImage": {
+        "url": "https://avatars.mds.yandex.net/get-grocery-goods/2756334/0a2f7b6b-7b13-4ac1-8796-6087778be7cd/{w}x{h}",
+        "substrated": false
+      },
+      "isFavorite": false,
+      "pricing": {
+        "amountPrice": 0,
+        "amountPriceSigned": "0",
+        "price": 0,
+        "priceSigned": "0"
+      },
+      "currentPrice": 0,
+      "currentPriceSigned": "0",
+      "isExpiring": false,
+      "adult": false,
+      "requiredRestriction": null,
+      "available": true,
+      "quantityLimit": "0",
+      "maxAmount": 0,
+      "baseStep": 1,
+      "incrementStep": 1,
+      "isLowStock": true,
+      "productTags": [],
+      "recipe": {
+        "cookTimeMinutes": 40,
+        "activeCookTimeMinutes": 40
+      },
+      "rewardedProductSamplingInfos": [],
+      "withVideo": true,
+      "options": {
+        "docsRequired": false
+      },
+      "children": []
+    },
+    {
+      "type": "recipe",
+      "id": "83f218c2c70e4cb797b739734b4fec3d000200020000",
+      "isMarkdown": false,
+      "deepLink": "yagodnaya-strachatella-na-nektarinah-gril",
+      "title": "Ягод­ная стра­ча­тел­ла на нек­та­ри­нах гриль",
+      "longTitle": "Ягодная страчателла на нектаринах гриль",
+      "stickers": [],
+      "amount": "1 шт.",
+      "snippetImage": {
+        "url": "https://avatars.mds.yandex.net/get-grocery-goods/2805921/4630d8f3-5d8d-4dca-a790-6a19f2d22612/{w}x{h}",
+        "substrated": false
+      },
+      "isFavorite": false,
+      "pricing": {
+        "amountPrice": 0,
+        "amountPriceSigned": "0",
+        "price": 0,
+        "priceSigned": "0"
+      },
+      "currentPrice": 0,
+      "currentPriceSigned": "0",
+      "isExpiring": false,
+      "adult": false,
+      "requiredRestriction": null,
+      "available": true,
+      "quantityLimit": "0",
+      "maxAmount": 0,
+      "baseStep": 1,
+      "incrementStep": 1,
+      "isLowStock": true,
+      "productTags": [],
+      "recipe": {
+        "cookTimeMinutes": 30,
+        "activeCookTimeMinutes": 30
+      },
+      "rewardedProductSamplingInfos": [],
+      "withVideo": true,
+      "options": {
+        "quantityType": "unit",
+        "docsRequired": false
+      },
+      "children": []
+    },
+    {
+      "type": "recipe",
+      "id": "82516eafad39477a979b2a1135dc2f29000200020000",
+      "isMarkdown": false,
+      "deepLink": "penne-s-tykvoj",
+      "title": "Пенне с тык­вой",
+      "longTitle": "Пенне с тыквой",
+      "stickers": [],
+      "amount": "1 шт.",
+      "snippetImage": {
+        "url": "https://avatars.mds.yandex.net/get-grocery-goods/2998515/67bc1271-8246-456d-bf37-950a8e57a6bd/{w}x{h}",
+        "substrated": false
+      },
+      "isFavorite": false,
+      "pricing": {
+        "amountPrice": 0,
+        "amountPriceSigned": "0",
+        "price": 0,
+        "priceSigned": "0"
+      },
+      "currentPrice": 0,
+      "currentPriceSigned": "0",
+      "isExpiring": false,
+      "adult": false,
+      "requiredRestriction": null,
+      "available": true,
+      "quantityLimit": "0",
+      "maxAmount": 0,
+      "baseStep": 1,
+      "incrementStep": 1,
+      "isLowStock": true,
+      "productTags": [],
+      "recipe": {
+        "cookTimeMinutes": 30,
+        "activeCookTimeMinutes": 30
+      },
+      "rewardedProductSamplingInfos": [],
+      "withVideo": true,
+      "options": {
+        "quantityType": "unit",
+        "docsRequired": false
+      },
+      "children": []
+    },
+    {
+      "type": "recipe",
+      "id": "ff0699ae569548ed96c77644d1708554000400020001",
+      "isMarkdown": false,
+      "deepLink": "frittata",
+      "title": "Фрит­та­та",
+      "longTitle": "Фриттата",
+      "stickers": [],
+      "amount": "1 шт.",
+      "snippetImage": {
+        "url": "https://avatars.mds.yandex.net/get-grocery-goods/2791769/e274b974-b851-41c0-8c29-70b9d6b8ebad/{w}x{h}",
+        "substrated": false
+      },
+      "isFavorite": false,
+      "pricing": {
+        "amountPrice": 0,
+        "amountPriceSigned": "0",
+        "price": 0,
+        "priceSigned": "0"
+      },
+      "currentPrice": 0,
+      "currentPriceSigned": "0",
+      "isExpiring": false,
+      "adult": false,
+      "requiredRestriction": null,
+      "available": true,
+      "quantityLimit": "0",
+      "maxAmount": 0,
+      "baseStep": 1,
+      "incrementStep": 1,
+      "isLowStock": true,
+      "productTags": [],
+      "recipe": {
+        "cookTimeMinutes": 25,
+        "activeCookTimeMinutes": 10
+      },
+      "rewardedProductSamplingInfos": [],
+      "withVideo": true,
+      "options": {
+        "docsRequired": false
+      },
+      "children": []
+    }
+  ]
+}

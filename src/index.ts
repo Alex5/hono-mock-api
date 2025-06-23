@@ -8,6 +8,7 @@ import { logger } from 'hono/logger'
 import { LRUCache } from 'lru-cache';
 import { getIronSession, type SessionOptions, type IronSession } from "iron-session";
 import category from "./fixtures/category.json" with { type: 'json' };
+import category_group from "./fixtures/category-group.json" with { type: 'json' };
 import { getEnvs } from './utils.js';
 import type { CartItem, Product, SessionData, UserCart } from './types.js';
 
@@ -113,6 +114,8 @@ app.get("/api/v1/yandex/callback", async (c) => {
 
 
 app.get("/api/v1/products", (c) => c.json(category.products));
+app.get("/api/v1/category", (c) => c.json(category));
+app.get("/api/v1/category-group", (c) => c.json(category_group));
 
 app.get("/api/v1/cart", (c) => {
   const session = c.get("session");
@@ -134,7 +137,7 @@ app.post("/api/v1/cart", async (c) => {
   if (!userId) return c.json(undefined, 401);
 
   const cartItem = await c.req.json() as Product;
-  
+
   if (!cartItem?.id) return c.json(undefined, 400);
 
   const cart = cartCache.get(userId) || {};
