@@ -11,6 +11,7 @@ import category from "./fixtures/category.json" with { type: 'json' };
 import category_group from "./fixtures/category-group.json" with { type: 'json' };
 import { getEnvs } from './utils.js';
 import type { CartItem, Product, SessionData, UserCart } from './types.js';
+import {HTTPException} from "hono/http-exception";
 
 const {CLIENT_ORIGIN,SESSION_SECRET, YANDEX_CLIENT_ID, YANDEX_REDIRECT_URI, YANDEX_CLIENT_SECRET} = getEnvs();
 
@@ -122,7 +123,7 @@ app.get("/api/v1/cart", (c) => {
 
   const userId = session.user?.id;
 
-  if (!userId) return c.json(undefined, 401);
+  if (!userId) throw new HTTPException(401)
 
   const cart = cartCache.get(userId);
 
@@ -134,11 +135,11 @@ app.post("/api/v1/cart", async (c) => {
 
   const userId = session.user?.id;
 
-  if (!userId) return c.json(undefined, 401);
+  if (!userId) throw new HTTPException(401)
 
   const cartItem = await c.req.json() as Product;
 
-  if (!cartItem?.id) return c.json(undefined, 400);
+  if (!cartItem?.id) if (!userId) throw new HTTPException(400)
 
   const cart = cartCache.get(userId) || {};
 
@@ -166,13 +167,13 @@ app.delete("/api/v1/cart/:productId", (c) => {
 
   const userId = session.user?.id;
 
-  if (!userId) return c.json(undefined, 401);
+  if (!userId) throw new HTTPException(401);
 
   const { productId } = c.req.param();
 
   const cart = cartCache.get(userId);
 
-  if (!cart || !cart[productId]) return c.json(undefined, 404);
+  if (!cart || !cart[productId]) throw new HTTPException(404)
 
   if (cart[productId].quantity === 1) {
     delete cart[productId];
