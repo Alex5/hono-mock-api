@@ -22,11 +22,14 @@ export function getEnvs() {
   if (!YANDEX_CLIENT_SECRET)
     throw new Error("YANDEX_REDIRECT_URI must be provided");
 
+  const BASE_URL = process.env.BASE_URL;
+
   return {
     CLIENT_ORIGIN,
     SESSION_SECRET,
     YANDEX_CLIENT_ID,
     YANDEX_REDIRECT_URI,
     YANDEX_CLIENT_SECRET,
+    BASE_URL,
   };
 }

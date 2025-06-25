@@ -13,7 +13,7 @@ import { getEnvs } from './utils.js';
 import type { CartItem, Product, SessionData, UserCart } from './types.js';
 import {HTTPException} from "hono/http-exception";
 
-const {CLIENT_ORIGIN,SESSION_SECRET, YANDEX_CLIENT_ID, YANDEX_REDIRECT_URI, YANDEX_CLIENT_SECRET} = getEnvs();
+const {CLIENT_ORIGIN,SESSION_SECRET, YANDEX_CLIENT_ID, YANDEX_REDIRECT_URI, YANDEX_CLIENT_SECRET, BASE_URL} = getEnvs();
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -89,7 +89,11 @@ app.get("/api/v1/yandex/callback", async (c) => {
     }),
   });
 
+
+
   const tokenData = await tokenRes.json();
+
+  console.log(tokenData);
 
   if (!tokenData.access_token) {
     console.error("Token error:", tokenData);
@@ -102,6 +106,8 @@ app.get("/api/v1/yandex/callback", async (c) => {
 
   const userInfo = await userRes.json();
 
+  console.log(userInfo);
+
   if (!userInfo.id) return c.text("User info error", 401);
 
   const session = c.get("session");
@@ -110,7 +116,7 @@ app.get("/api/v1/yandex/callback", async (c) => {
 
   await session.save();
 
-  return c.redirect(`${CLIENT_ORIGIN}/react-lavka/`);
+  return c.redirect(`${CLIENT_ORIGIN}${BASE_URL ? BASE_URL : ""}`);
 });
 
 
