@@ -4,7 +4,8 @@ import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { csrf } from 'hono/csrf'
 import { cors } from 'hono/cors';
-import { logger } from 'hono/logger'
+import {pinoHttp} from "pino-http"
+import { requestId } from 'hono/request-id';
 import { LRUCache } from 'lru-cache';
 import { getIronSession, type SessionOptions, type IronSession } from "iron-session";
 import category from "./fixtures/category.json" with { type: 'json' };
@@ -12,6 +13,8 @@ import category_group from "./fixtures/category-group.json" with { type: 'json' 
 import { getEnvs } from './utils.js';
 import type { CartItem, Product, SessionData, UserCart } from './types.js';
 import {HTTPException} from "hono/http-exception";
+import type {IncomingMessage, ServerResponse} from "node:http";
+import type {Logger} from "pino";
 
 const {CLIENT_ORIGIN,SESSION_SECRET, YANDEX_CLIENT_ID, YANDEX_REDIRECT_URI, YANDEX_CLIENT_SECRET, BASE_URL} = getEnvs();
 
@@ -32,9 +35,22 @@ const cartCache = new LRUCache<string, UserCart>({
   ttl: 300000,
 });
 
-const app = new Hono<{ Variables: { session: IronSession<SessionData> } }>();
+const app = new Hono<{ Variables: { session: IronSession<SessionData>, logger: Logger}, Bindings: {incoming: IncomingMessage; outgoing: ServerResponse<IncomingMessage>} }>();
 
-app.use(logger());
+app.use(requestId());
+app.use(async (c, next) => {
+  c.env.incoming.id = c.var.requestId;
+
+  await new Promise<void>((resolve) => pinoHttp({
+    transport: {
+      target: 'pino-pretty'
+    },
+  })(c.env.incoming, c.env.outgoing, () => resolve()));
+
+  c.set('logger', c.env.incoming.log);
+
+  await next();
+});
 app.use('/api/*', cors({ origin: CLIENT_ORIGIN, credentials: true }));
 app.use(csrf({ origin: CLIENT_ORIGIN }));
 app.use(async (c, next) => {
@@ -89,11 +105,7 @@ app.get("/api/v1/yandex/callback", async (c) => {
     }),
   });
 
-
-
   const tokenData = await tokenRes.json();
-
-  console.log(tokenData);
 
   if (!tokenData.access_token) {
     console.error("Token error:", tokenData);
@@ -105,8 +117,6 @@ app.get("/api/v1/yandex/callback", async (c) => {
   });
 
   const userInfo = await userRes.json();
-
-  console.log(userInfo);
 
   if (!userInfo.id) return c.text("User info error", 401);
 
