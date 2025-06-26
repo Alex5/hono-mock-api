@@ -16,7 +16,7 @@ import {HTTPException} from "hono/http-exception";
 import type {IncomingMessage, ServerResponse} from "node:http";
 import type {Logger} from "pino";
 
-const {CLIENT_ORIGIN,SESSION_SECRET, YANDEX_CLIENT_ID, YANDEX_REDIRECT_URI, YANDEX_CLIENT_SECRET, BASE_URL} = getEnvs();
+const {CLIENT_ORIGIN,SESSION_SECRET, YANDEX_CLIENT_ID, YANDEX_REDIRECT_URI, YANDEX_CLIENT_SECRET} = getEnvs();
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -126,7 +126,7 @@ app.get("/api/v1/yandex/callback", async (c) => {
 
   await session.save();
 
-  return c.redirect(`${CLIENT_ORIGIN}${BASE_URL ? BASE_URL : ""}`);
+  return c.redirect(CLIENT_ORIGIN);
 });
 
 
